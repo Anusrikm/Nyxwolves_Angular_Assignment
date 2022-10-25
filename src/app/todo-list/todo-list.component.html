@@ -1,0 +1,65 @@
+<form #form="ngForm" ngForm style="padding:100px">
+    <div>
+        <div class="form-group">
+            <label>
+                Task Name
+            </label>
+            <input class="form-control" type="text" #taskName="ngModel" name="taskName"  ngModel />
+        </div>
+        <div class="form-group">
+            <label>
+                Task Description
+            </label>
+            <input class="form-control" type="text" #taskDescription="ngModel" name="taskDescription"  ngModel />
+        </div>
+        
+        <div class="form-group">
+            <label>
+                Task Assignee
+            </label>
+            <input class="form-control" type="text" #taskAssignee="ngModel" name="taskAssignee"  ngModel />
+        </div>
+        <div class="form-group">
+            <label>
+                Prioirty
+            </label>
+            <input class="form-control" type="text" #tasPriority="ngModel" name="tasPriority"  ngModel />
+        </div>
+        <div>
+            <button class="btn btn-primary" (click)="createtodoTask(form)">Create</button>
+            <!-- <button class="btn btn-warning" (click)="removetodoTask()()">Remove</button> -->
+        </div>
+    </div>
+</form>
+
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Task Name
+                </th>
+                <th>
+                    Task Description
+                </th>
+                <th>
+                    Task Assignee
+                </th>
+                <th>
+                    Task Priority
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = " let item of todoList">
+                <td>{{item.TaskName }}</td>
+                <td>{{item.TaskDescription }}</td>
+                <td>{{item.TaskAssignee }}</td>
+                <td>{{item.TaskPriority }}</td>
+         <td>
+            <button class="btn btn-warning" (click)="removetodoTask(item.id)">remove</button>
+         </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
